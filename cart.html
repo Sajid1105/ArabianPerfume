@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cart - Arabian Perfumes</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="css/style.css" />
+  
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+  <img src="/assests/logo.webp" alt="Logo" class="logo-img">
+  <span>Arabian Perfumes</span>
+</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="cart.html">Cart 🛒</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="cart-main">
+    <h1 class="page-title">Your Cart</h1>
+
+    <div class="cart-container">
+      <div class="cart-table-wrapper">
+      <table class="cart-table">
+       <thead>
+  <tr>
+    <th>Product</th>
+    <th>Size</th>
+    <th>Price</th>
+    <th>Qty</th>
+    <th>Subtotal</th>
+    <th>Remove</th>
+  </tr>
+</thead>
+
+        <tbody id="cart-items">
+          <!-- Items will be dynamically inserted here -->
+        </tbody>
+      </table>
+      </div>
+      <div class="cart-summary">
+        <p><strong>Total:</strong> ₹<span id="cart-total">0</span></p>
+        <button class="btn" onclick="checkoutViaWhatsApp()" >Checkout</button>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>Contact: +91 77381 10692 | arabianperfumes100@gmail.com</p>
+    <p>&copy; 2025 Arabian Perfumes. All right
+</footer>
+<script src="js/cart.js"></script>
+</body>

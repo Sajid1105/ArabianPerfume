@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Arabian Perfumes - Essence of Pride</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+  <nav class="navbar">
+    <div class="logo">
+  <img src="/assests/logo.webp" alt="Logo" class="logo-img">
+  <span>Arabian Perfumes</span>
+</div>
+
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="cart.html">Cart 🛒</a></li>
+    </ul>
+  </nav>
+</header>
+
+ <section class="hero">
+    <div class="hero-content">
+      <h1>Essence of Pride</h1>
+      <p>American, Turkish & Modern Blends</p>
+      <p class="highlight">Long Lasting & Exotic</p><br>
+      <a href="products.html" class="btn">Shop Now</a>
+    </div>
+  </section>
+
+<div class="carousel-container">
+  <div class="arrow left" onclick="prevSlide()">&#10094;</div>
+
+  <div class="carousel-wrapper">
+    <div class="carousel-track" id="carousel-track">
+      <img src="assests/home1.webp" alt="Slide 1">
+      <img src="assests/home2.webp" alt="Slide 2">
+      <img src="assests/home3.webp" alt="Slide 3">
+      <img src="assests/home4.webp" alt="Slide 4">
+      <img src="assests/home5.webp" alt="Slide 5">
+      <img src="assests/home6.webp" alt="Slide 5">
+      <img src="assests/home7.webp" alt="Slide 5">
+    </div>
+  </div>
+
+  <div class="arrow right" onclick="nextSlide()">&#10095;</div>
+</div>
+
+<section class="about-home-text fade-on-scroll">
+  <div class="about-content">
+    <h2>About <span class="gold">Arabian Perfumes</span></h2>
+    <p>
+      At <strong><em>Arabian Perfumes</em></strong>, we take pride in offering premium Arabian perfumes that embody the richness of tradition and the elegance of modern craftsmanship. Our fragrances are crafted with <span class="highlight">halal-certified, alcohol-free ingredients</span>, making them completely <span class="highlight">namaz-friendly</span> and perfect for spiritual and personal use. Designed with cultural sensitivity in mind, each scent reflects the beauty of diverse traditions and timeless Arabian heritage.
+    </p>
+    <p>
+      We believe luxury should be <span class="highlight">accessible to everyone</span>, which is why our perfumes are <span class="highlight">pocket-friendly without compromising quality</span>. Our curated blends range from <span class="highlight">deep oud</span> to <span class="highlight">soft florals</span> and <span class="highlight">spicy orientals</span>, offering a graceful journey for every personality. Whether you're looking to express your style, connect with your roots, or simply enjoy a fragrance that lingers gracefully throughout the day, our perfumes are made to complement your identity with authenticity and grace.
+    </p>
+  </div>
+</section>
+
+
+
+ 
+
+  <footer>
+    <p>Contact: +91 77381 10692 | arabianperfumes100@gmail.com</p>
+    <p>&copy; 2025 Arabian Perfumes. All rights reserved.</p>
+  </footer>
+<script>
+  const track = document.getElementById('carousel-track');
+  let index = 0;
+  let imgs = Array.from(track.children);
+  const total = imgs.length;
+
+  // Clone first 2 images for loop effect
+  imgs.slice(0, 2).forEach(img => {
+    track.appendChild(img.cloneNode(true));
+  });
+  imgs = Array.from(track.children);
+
+  function updateCarousel() {
+    imgs.forEach((img, i) => img.classList.remove('active'));
+
+    const center = (index + 1) % imgs.length;
+    if (imgs[center]) imgs[center].classList.add('active');
+
+    const imgWidth = imgs[0].offsetWidth + parseInt(getComputedStyle(track).gap || 24);
+
+    const translateX = imgWidth * index;
+    track.style.transform = `translateX(-${translateX}px)`;
+  }
+
+  function nextSlide() {
+    index++;
+    if (index >= total) {
+      track.style.transition = "none";
+      index = 0;
+      updateCarousel();
+      setTimeout(() => {
+        track.style.transition = "transform 0.6s ease-in-out";
+        nextSlide();
+      }, 50);
+      return;
+    }
+    updateCarousel();
+  }
+
+  function prevSlide() {
+    if (index <= 0) {
+      index = total - 1;
+      track.style.transition = "none";
+      updateCarousel();
+      setTimeout(() => {
+        track.style.transition = "transform 0.6s ease-in-out";
+      }, 50);
+    } else {
+      index--;
+      updateCarousel();
+    }
+  }
+
+  updateCarousel();
+  setInterval(nextSlide, 3000);
+
+  const fadeEls = document.querySelectorAll('.fade-on-scroll');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target); // Optional: remove after triggered once
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
+
+  fadeEls.forEach(el => observer.observe(el));
+
+
+</script>
+
+
+</body>
+</html>

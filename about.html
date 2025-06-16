@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us - Arabian Perfumes</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+  <img src="/assests/logo.webp" alt="Logo" class="logo-img">
+  <span>Arabian Perfumes</span>
+</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="cart.html">Cart 🛒</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="about-main">
+  <h1 class="page-title">About Us</h1>
+
+  <!-- Meet Our Team -->
+  <section class="about-section fade-on-scroll">
+    <div class="about-grid team">
+      <div class="team-box">
+        <h3>About the Owner</h3>
+         <p class="team-name">Mohammad Uzair Shaikh</p>
+         <p class="designation">A seasoned hand in the art of perfumery</p>
+
+        <p>
+          Our founder is deeply inspired by the heritage of Arabian fragrances and their timeless elegance.
+          With years of hands-on experience blending traditional attars and modern notes, his mission is to create scents that carry meaning and memory.
+          His dedication lies in crafting alcohol-free, spiritually-aware perfumes that enrich daily life.
+        </p>
+      </div>
+      <div class="team-box">
+        <h3 class="grand-heading">About the Senior Advisor</h3>
+        <p class="team-name">Mohammad Suhail Shaikh</p>
+        <p class="designation">Apothecary with 25 years of experience</p>
+        <p>
+          Our senior advisor brings strategic guidance with a strong sense of cultural and sensory sophistication.
+          With a background in herbal sciences and olfactory blending, they help ensure each product meets the highest standards of halal authenticity, sustainability, and timeless charm.
+        </p>
+      </div>
+    </div>
+  </section>
+
+ <section class="about-section fade-on-scroll">
+  <h2 class="grand-heading">About Our Products</h2>
+  <div class="product-info-grid">
+    <p>
+      Arabian Perfumes offers a curated collection of attars, alcohol-free sprays, and body creams — all designed to celebrate heritage, identity, and luxury in one drop.
+      From oud to rose, from spice to sweetness, our fragrances carry a story and spirit for every soul.
+    </p>
+    
+    <img src="/assests/prodctsimg.webp" alt="Our Products"><br>
+
+    <span class="highlight">Enjoy true luxury at a price that respects your pocket — no compromise on quality.</span>
+  </div>
+</section>
+
+
+  <!-- Photo Gallery -->
+  <section class="about-section fade-on-scroll">
+    <h2 class="grand-heading">Gallery</h2>
+    <div class="gallery-grid">
+      <img src="/assests/g1.webp" alt="Perfume 1">
+      <img src="/assests/g2.webp" alt="Perfume 2">
+      <img src="/assests/g3.webp" alt="Perfume 3">
+      <img src="/assests/g5.webp" alt="Perfume 4">
+      <img src="/assests/g4.webp" alt="Perfume 4">
+    </div>
+  </section>
+</main>
+
+  <footer>
+    <p>Contact: +91 77381 10692 | arabianperfumes100@gmail.com</p>
+    <p>&copy; 2025 Arabian Perfumes. All rights reserved.</p>
+  </footer>
+  <script>
+  const fadeEls = document.querySelectorAll('.fade-on-scroll');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
+
+  fadeEls.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
